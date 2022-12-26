@@ -1,0 +1,66 @@
+    public static void main(String[] args) {
+    //  int[][] matrizg,matrizp;
+       // matrizg = new int[10][10];
+       // matrizp = new int [3][3];
+        int [][]matrizg = {{1,1,1,1,1,1,1,1,1,1},
+                           {1,1,1,1,1,1,1,1,1,1},
+                           {1,1,1,1,1,1,1,2,2,2},
+                           {1,1,1,1,1,1,1,2,2,2},
+                           {1,1,1,1,1,1,1,2,2,2},
+                           {1,1,1,1,1,1,1,1,1,1},
+                           {1,1,1,1,1,1,1,1,1,1},
+                           {1,1,1,1,1,1,1,1,1,1},
+                           {1,1,1,1,1,1,1,1,1,1},
+                           {1,1,1,1,1,1,1,1,1,1}};
+        int [][]matrizp = {{2,2,2},{2,2,2},{2,2,2}};
+        //llenadodem(matrizg, matrizp);
+        mostrarm(matrizg, 10);
+        mostrarm(matrizp, 3);
+        buscarm(matrizp, matrizg);
+        
+    }
+    public static void llenadodem(int[][] matrizg, int[][] matrizp){
+        
+        /*for (int f=0; f<10; f++){
+            for(int c=0;c<10; c++){
+                matrizg[f][c]= (int) (Math.random() * 10);
+            if (f<3 && c<3){
+                matrizp[f][c]= (int) (Math.random() * 10);
+            }
+            }            
+        }*/
+    }
+    public static void mostrarm(int[][] matriz, int tam){
+        for (int f=0; f<tam; f++){
+            for(int c=0;c<tam; c++){
+                System.out.print(matriz[f][c]+" ");
+            }
+            System.out.println(" ");
+        }
+    }
+    public static void buscarm(int[][] matriz, int[][] matriz2){
+        int posf;
+        int posc;
+        for (posf=0; posf<8; posf++){
+            for (posc=0;posc<8;posc++){
+                int cont=0;
+                for (int f=0;f<3;f++){
+                    for (int c=0; c<3;c++){
+                        if (matriz[f][c]==matriz2[f+posf][c+posc]){
+                           cont++;
+                        }
+
+                    }
+                }
+                if (cont == 9){
+                    System.out.println("listo");
+                    System.out.println("posicion: "+posf+","+posc+"/"+posf+","+(posc+1)+"/"+posf+","+(posc+2));
+                    System.out.println("posicion: "+(posf+1)+","+posc+"/"+(posf+1)+","+(posc+1)+"/"+(posf+1)+","+(posc+2));
+                    System.out.println("posicion: "+(posf+2)+","+posc+"/"+(posf+2)+","+(posc+1)+"/"+(posf+2)+","+(posc+2));
+                } else {
+                    cont=0;
+                }
+            }
+        }
+    }
+}
